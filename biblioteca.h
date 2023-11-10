@@ -11,7 +11,9 @@ struct Tarefa {
     int prioridade;
     char descricao[300];
     char categoria[100];
+    char estado[15]; // Adicionando campo para o estado da tarefa
 };
+
 
 void salvarTarefa(struct Tarefa tarefas[], int nTarefas);
 void lerTarefas(struct Tarefa tarefas[], int *nTarefas);
