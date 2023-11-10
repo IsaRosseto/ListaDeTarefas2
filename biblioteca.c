@@ -54,6 +54,8 @@ void cadastrarTarefa(struct Tarefa tarefas[], int *nTarefas) {
         scanf(" %[^\n]", novaTarefa.descricao);
         printf("Informe a categoria da tarefa: ");
         scanf(" %[^\n]", novaTarefa.categoria);
+        printf("Informe o estado da tarefa (completo/em andamento/não iniciado): ");
+        scanf(" %[^\n]", novaTarefa.estado);
 
         tarefas[*nTarefas] = novaTarefa;
         (*nTarefas)++;
@@ -63,6 +65,7 @@ void cadastrarTarefa(struct Tarefa tarefas[], int *nTarefas) {
         printf("A lista de tarefas está cheia. Não é possível cadastrar mais tarefas.\n");
     }
 }
+
 //A função verifica se a lista de tarefas não está cheia (MAX_TAREFAS).
 // Se houver espaço disponível salvamos uma nova tarefa aumentamndo o contador de tarefas em 1 para saber que temos mais uma tarefa na lista.
 
