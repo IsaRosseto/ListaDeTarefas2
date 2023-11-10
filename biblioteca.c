@@ -78,9 +78,11 @@ void listarTarefas(struct Tarefa tarefas[], int nTarefas) {
         printf("Prioridade: %d\n", tarefas[i].prioridade);
         printf("Descricao: %s\n", tarefas[i].descricao);
         printf("Categoria: %s\n", tarefas[i].categoria);
+        printf("Estado: %s\n", tarefas[i].estado); // Mostrar o estado da tarefa
         printf("\n");
     }
 }
+
 //Essa função mostra uma lista de tarefas. Ela imprime cada tarefa na tela, uma por uma.
 // Para cada tarefa, mostra a prioridade, a descrição e a categoria.
 
