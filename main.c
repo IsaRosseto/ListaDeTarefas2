@@ -4,7 +4,6 @@
 //OBS: Os comentarios sobre a implementação das funções e a logica estão em "biblioteca.c"
 
 
-
 #include <stdio.h>
 #include "Biblioteca.h"
 
@@ -20,7 +19,16 @@ int main() {
         printf("1. Cadastrar tarefa\n");
         printf("2. Listar tarefas\n");
         printf("3. Deletar tarefa\n");
-        printf("4. Sair\n");
+        printf("4. Alterar tarefa\n");
+        printf("5. Filtrar por prioridade \n");
+        printf("6. Filtrar por estado\n");
+        printf("7. Filtrar por categoria\n");
+        printf("8. Filtrar por prioridade e categoria\n");
+        printf("9. Exportar tarefa por Prioridade\n");
+        printf("10. Exportar tarefa por Categoria\n");
+        printf("11. Exportar por prioridade e Categoria\n");
+        printf("12. Sair\n");
+
         scanf("%d", &opcao);
 
         switch (opcao) {
@@ -41,6 +49,90 @@ int main() {
                 }
                 break;
             case 4:
+                if (numTarefas > 0) {
+                    alterarTarefa(tarefas, numTarefas);
+                } else {
+                    printf("Não ha tarefas cadastradas.\n");
+                }
+                break;
+            case 5:
+                if (numTarefas > 0) {
+                    int prioridade;
+                    printf("Informe a prioridade para filtrar as tarefas: ");
+                    scanf("%d", &prioridade);
+                    filtrarPorPrioridade(tarefas, numTarefas, prioridade);
+                } else {
+                    printf("Nenhuma tarefa cadastrada.\n");
+                }
+                break;
+            case 6:
+                if (numTarefas > 0) {
+                    char estado[15];
+                    printf("Informe o estado para filtrar as tarefas (completo/em andamento/não iniciado): ");
+                    scanf(" %[^\n]", estado);
+                    filtrarPorEstado(tarefas, numTarefas, estado);
+                } else {
+                    printf("Nenhuma tarefa cadastrada.\n");
+                }
+                break;
+            case 7:
+                if (numTarefas > 0) {
+                    char categoria[100];
+                    printf("Informe a categoria para filtrar as tarefas: ");
+                    scanf(" %[^\n]", categoria);
+                    filtrarPorCategoria(tarefas, numTarefas, categoria);
+                } else {
+                    printf("Nenhuma tarefa cadastrada.\n");
+                }
+                break;
+            case 8:
+                if (numTarefas > 0) {
+                    int prioridade;
+                    char categoria[100];
+                    printf("Informe a prioridade para filtrar as tarefas: ");
+                    scanf("%d", &prioridade);
+                    printf("Informe a categoria para filtrar as tarefas: ");
+                    scanf(" %[^\n]", categoria);
+                    filtrarPorPrioridadeECategoria(tarefas, numTarefas, prioridade, categoria);
+                } else {
+                    printf("Nenhuma tarefa cadastrada.\n");
+                }
+                break;
+            case 9:
+                if (numTarefas > 0) {
+                    int prioridadeExportacao;
+                    printf("Informe a prioridade para exportar as tarefas: ");
+                    scanf("%d", &prioridadeExportacao);
+                    exportarPorPrioridade(tarefas, numTarefas, prioridadeExportacao);
+                } else {
+                    printf("Nenhuma tarefa cadastrada.\n");
+                }
+                break;
+            case 10:
+                if (numTarefas > 0) {
+                    char categoriaExportacao[100];
+                    printf("Informe a categoria para exportar as tarefas: ");
+                    scanf(" %[^\n]", categoriaExportacao);
+                    exportarPorCategoria(tarefas, numTarefas, categoriaExportacao);
+                } else {
+                    printf("Nenhuma tarefa cadastrada.\n");
+                }
+                break;
+            case 11:
+                if (numTarefas > 0) {
+                    int prioridadeExportacao;
+                    char categoriaExportacao[100];
+                    printf("Informe a prioridade para exportar as tarefas: ");
+                    scanf("%d", &prioridadeExportacao);
+                    printf("Informe a categoria para exportar as tarefas: ");
+                    scanf(" %[^\n]", categoriaExportacao);
+                    exportarPorPrioridadeECategoria(tarefas, numTarefas, prioridadeExportacao, categoriaExportacao);
+                } else {
+                    printf("Nenhuma tarefa cadastrada.\n");
+                }
+                break;
+            case 12:
+                printf("Saindo...");
                 return 0;
             default:
                 printf("Opcao invalida. Tente novamente.\n");
