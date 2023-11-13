@@ -37,9 +37,6 @@ void lerTarefas(struct Tarefa tarefas[], int *nTarefas) {
         // Lê as tarefas do arquivo
         fread(tarefas, sizeof(struct Tarefa), *nTarefas, arquivo);
         fclose(arquivo);
-    } else {
-        // Exibe uma mensagem de erro se o arquivo não puder ser aberto para leitura
-        printf("Erro ao abrir o arquivo para leitura.\n");
     }
 }
 
